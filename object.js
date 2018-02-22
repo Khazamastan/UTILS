@@ -1,18 +1,18 @@
 var object_Utils = {
-getValueFromMap: function (obj, map) {
-    map = map.split('.');
-    var value = obj || {};
-    for (var i = 0; i < map.length; i++) {
-      var item = map[i];
-      value = value[item];
-      if (!value) {
-        value = null;
-        break;
-      }
-    }
-    return value;
+    getVal: function (obj, map) {
+        map = map.split('.');
+        var value = obj || {};
+        for (var i = 0; i < map.length; i++) {
+          var item = map[i];
+          value = value[item];
+          if (!value) {
+            value = null;
+            break;
+          }
+        }
+        return value;
   },
-  setValueToMap: function (obj, map, value) {
+  setVal: function (obj, map, value) {
     map = map.split('.');
     for (var i = 0; i < map.length - 1; i++) {
       var item = map[i];
@@ -79,7 +79,7 @@ getValueFromMap: function (obj, map) {
     }
     return (str).replace(/(^\?)/, '').split('&').map(function (n) {return n = n.split('='), this[n[0]] = n[1], this}.bind({}))[0]
   },
-  delValueInMap : function (obj, map) {
+  delVal : function (obj, map) {
     map = map.split('.')
     for (var i = 0; i < map.length - 1; i++) {
       var item = map[i]
